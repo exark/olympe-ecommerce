@@ -52,6 +52,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Greek theme colors
+				marble: {
+					DEFAULT: 'hsl(var(--marble))',
+					dark: 'hsl(var(--marble-dark))'
+				},
+				silver: {
+					light: 'hsl(var(--silver-light))',
+					DEFAULT: 'hsl(var(--silver))',
+					dark: 'hsl(var(--silver-dark))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +72,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				'serif': ['Playfair Display', 'serif'],
+				'sans': ['Inter', 'sans-serif'],
+			},
+			backgroundImage: {
+				'gradient-marble': 'var(--gradient-marble)',
+				'gradient-silver': 'var(--gradient-silver)',
+			},
+			boxShadow: {
+				'marble': 'var(--shadow-marble)',
+				'elevated': 'var(--shadow-elevated)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
