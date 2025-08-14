@@ -1,15 +1,27 @@
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Parallax */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
           alt="Ancient Greek inspired fashion" 
           className="w-full h-full object-cover opacity-90"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-transparent"></div>
       </div>

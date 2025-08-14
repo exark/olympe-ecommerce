@@ -1,23 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
+  id?: number;
   image: string;
   title: string;
   price: string;
   originalPrice?: string;
 }
 
-const ProductCard = ({ image, title, price, originalPrice }: ProductCardProps) => {
+const ProductCard = ({ id = 1, image, title, price, originalPrice }: ProductCardProps) => {
   return (
     <Card className="group cursor-pointer border-border hover:shadow-elevated transition-all duration-300 overflow-hidden bg-card">
-      <div className="aspect-square overflow-hidden bg-marble">
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-      </div>
+      <Link to={`/product/${id}`}>
+        <div className="aspect-square overflow-hidden bg-marble">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      </Link>
       
       <div className="p-6 space-y-4">
         <div>
