@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "title": "Classical Tunic Dress",
+    "price": 189,
+    "originalPrice": 245,
+    "imageKey": "tunic",
+    "category": "Dresses",
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "numericPrice": 189,
+    "rating": 4.8,
+    "reviews": 127,
+    "description": "Embrace the timeless elegance of ancient Greece with this flowing tunic dress. Crafted from premium silk-blend fabric, this piece embodies the classical beauty of Grecian design while offering modern comfort and sophistication.",
+    "details": [
+      "Premium silk-blend fabric",
+      "Hand-finished seams",
+      "Adjustable shoulder straps",
+      "Flowing A-line silhouette",
+      "Machine washable"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Elegant Toga Wrap",
+    "price": 215,
+    "imageKey": "toga",
+    "category": "Togas",
+    "sizes": ["S", "M", "L", "XL"],
+    "numericPrice": 215,
+    "rating": 4.6,
+    "reviews": 84,
+    "description": "A refined toga wrap inspired by classical drapery, designed for modern elegance and comfort.",
+    "details": ["Soft breathable fabric", "Versatile drape", "Evening-ready silhouette"]
+  },
+  {
+    "id": 3,
+    "title": "Grecian Sandals",
+    "price": 95,
+    "originalPrice": 120,
+    "imageKey": "sandals",
+    "category": "Sandals",
+    "sizes": ["36", "37", "38", "39", "40", "41", "42"],
+    "numericPrice": 95,
+    "rating": 4.5,
+    "reviews": 203,
+    "description": "Handcrafted leather sandals with classic Grecian straps for everyday comfort and timeless style.",
+    "details": ["Genuine leather", "Non-slip sole", "Hand-stitched straps"]
+  },
+  {
+    "id": 4,
+    "title": "Flowing Chiton",
+    "price": 165,
+    "imageKey": "tunic",
+    "category": "Dresses",
+    "sizes": ["XS", "S", "M", "L"],
+    "numericPrice": 165,
+    "rating": 4.7,
+    "reviews": 61,
+    "description": "A graceful chiton silhouette that captures the essence of ancient Greek attire.",
+    "details": ["Lightweight drape", "Elegant pleating", "Breathable weave"]
+  },
+  {
+    "id": 5,
+    "title": "Draped Evening Dress",
+    "price": 295,
+    "imageKey": "toga",
+    "category": "Dresses",
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "numericPrice": 295,
+    "rating": 4.9,
+    "reviews": 45,
+    "description": "A statement evening dress with dramatic Grecian draping and a flattering form.",
+    "details": ["Luxurious fabric", "Flattering drape", "Occasion-ready"]
+  },
+  {
+    "id": 6,
+    "title": "Strappy Goddess Sandals",
+    "price": 125,
+    "imageKey": "sandals",
+    "category": "Sandals",
+    "sizes": ["36", "37", "38", "39", "40", "41"],
+    "numericPrice": 125,
+    "rating": 4.4,
+    "reviews": 98,
+    "description": "Elevated sandals with intricate straps for a goddess-inspired look.",
+    "details": ["Cushioned footbed", "Adjustable straps", "Durable outsole"]
+  }
+]

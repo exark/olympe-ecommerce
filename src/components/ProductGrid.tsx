@@ -1,9 +1,8 @@
 import ProductCard from "./ProductCard";
 import SearchFilters from "./SearchFilters";
-import productTunic from "@/assets/product-tunic.jpg";
-import productToga from "@/assets/product-toga.jpg";
-import productSandals from "@/assets/product-sandals.jpg";
 import { useState, useMemo } from "react";
+import products from "@/data/products.json";
+import { getProductImage } from "@/lib/productAssets";
 
 const ProductGrid = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,72 +12,13 @@ const ProductGrid = () => {
     sizes: [],
   });
 
-  const products = [
-    {
-      id: 1,
-      image: productTunic,
-      title: "Classical Tunic Dress",
-      price: "$189",
-      originalPrice: "$245",
-      category: "Dresses",
-      sizes: ["XS", "S", "M", "L", "XL"],
-      numericPrice: 189
-    },
-    {
-      id: 2,
-      image: productToga,
-      title: "Elegant Toga Wrap",
-      price: "$215",
-      category: "Togas",
-      sizes: ["S", "M", "L", "XL"],
-      numericPrice: 215
-    },
-    {
-      id: 3,
-      image: productSandals,
-      title: "Grecian Sandals",
-      price: "$95",
-      originalPrice: "$120",
-      category: "Sandals",
-      sizes: ["36", "37", "38", "39", "40", "41", "42"],
-      numericPrice: 95
-    },
-    {
-      id: 4,
-      image: productTunic,
-      title: "Flowing Chiton",
-      price: "$165",
-      category: "Dresses",
-      sizes: ["XS", "S", "M", "L"],
-      numericPrice: 165
-    },
-    {
-      id: 5,
-      image: productToga,
-      title: "Draped Evening Dress",
-      price: "$295",
-      category: "Dresses",
-      sizes: ["S", "M", "L", "XL", "XXL"],
-      numericPrice: 295
-    },
-    {
-      id: 6,
-      image: productSandals,
-      title: "Strappy Goddess Sandals",
-      price: "$125",
-      category: "Sandals",
-      sizes: ["36", "37", "38", "39", "40", "41"],
-      numericPrice: 125
-    }
-  ];
-
   const filteredProducts = useMemo(() => {
     return products.filter(product => {
       const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesCategory = filters.categories.length === 0 || 
         filters.categories.includes(product.category);
-      const matchesPrice = product.numericPrice >= filters.priceRange[0] && 
-        product.numericPrice <= filters.priceRange[1];
+      const matchesPrice = product.price >= filters.priceRange[0] && 
+        product.price <= filters.priceRange[1];
       const matchesSize = filters.sizes.length === 0 || 
         product.sizes.some(size => filters.sizes.includes(size));
 
@@ -118,10 +58,10 @@ const ProductGrid = () => {
                 <ProductCard
                   key={product.id}
                   id={product.id}
-                  image={product.image}
+                  image={getProductImage(product.imageKey as any)}
                   title={product.title}
-                  price={product.price}
-                  originalPrice={product.originalPrice}
+                  price={`$${product.price}`}
+                  originalPrice={product.originalPrice ? `$${product.originalPrice}` : undefined}
                 />
               ))}
             </div>

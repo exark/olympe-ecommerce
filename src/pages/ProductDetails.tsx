@@ -4,36 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import products from "@/data/products.json";
+import { getProductImage } from "@/lib/productAssets";
 
-// Mock product data - in real app, this would come from API
-const products = {
-  1: {
-    id: 1,
-    title: "Classical Tunic Dress",
-    price: 189,
-    originalPrice: 245,
-    images: ["/src/assets/product-tunic.jpg"],
-    description: "Embrace the timeless elegance of ancient Greece with this flowing tunic dress. Crafted from premium silk-blend fabric, this piece embodies the classical beauty of Grecian design while offering modern comfort and sophistication.",
-    details: [
-      "Premium silk-blend fabric",
-      "Hand-finished seams",
-      "Adjustable shoulder straps", 
-      "Flowing A-line silhouette",
-      "Machine washable"
-    ],
-    sizes: ["XS", "S", "M", "L", "XL"],
-    rating: 4.8,
-    reviews: 127
-  }
-};
+type Product = (typeof products)[number];
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("");
+
+  const product: Product | undefined = products.find(p => p.id === Number(id));
   
-  const product = products[Number(id) as keyof typeof products];
+  // Always jump to top when navigating to a product or switching product IDs
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [id]);
   
   if (!product) {
     return (
@@ -64,7 +51,7 @@ const ProductDetails = () => {
           <div className="space-y-4">
             <div className="aspect-square overflow-hidden rounded-lg bg-marble">
               <img
-                src={product.images[0]}
+                src={getProductImage(product.imageKey as any)}
                 alt={product.title}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
@@ -100,7 +87,7 @@ const ProductDetails = () => {
                 <span className="text-3xl font-bold text-foreground">
                   ${product.price}
                 </span>
-                {product.originalPrice && (
+                {product.originalPrice !== undefined && (
                   <span className="text-xl text-muted-foreground line-through">
                     ${product.originalPrice}
                   </span>
