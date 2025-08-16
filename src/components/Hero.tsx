@@ -24,7 +24,7 @@ const Hero = () => {
   const isMobile = viewportWidth < 640; // < sm
   const isTablet = viewportWidth >= 640 && viewportWidth < 1024; // sm–lg
   // Mobile: no parallax, focus top-right statue, fit by height for a vertical crop
-  const parallaxFactor = isMobile ? 0 : isTablet ? 0.45 : 0.7;
+  const parallaxFactor = isMobile ? 0.5 : isTablet ? 0.45 : 0.7;
   const backgroundSize = isMobile ? "auto 110%" : isTablet ? "105% auto" : "100% auto";
   const backgroundPosition = isMobile ? "right 18% center" : isTablet ? "center 20%" : "center 15%";
 
@@ -39,6 +39,7 @@ const Hero = () => {
             transform: `translateY(${scrollY * parallaxFactor}px)`,
             backgroundPosition,
             backgroundSize,
+            willChange: 'transform',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-transparent"></div>
