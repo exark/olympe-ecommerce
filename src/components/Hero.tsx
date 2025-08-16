@@ -15,12 +15,12 @@ const Hero = () => {
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Parallax */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Ancient Greek inspired fashion" 
-          className="w-full h-full object-cover opacity-90"
+        <div 
+          className="w-full h-[120%] bg-cover bg-center bg-no-repeat opacity-90"
           style={{
-            transform: `translateY(${scrollY * 0.5}px)`,
+            backgroundImage: `url(${heroImage})`,
+            transform: `translateY(${scrollY * 0.3}px)`,
+            backgroundPosition: 'center 20%',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-transparent"></div>

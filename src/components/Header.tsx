@@ -39,9 +39,11 @@ const Header = () => {
               <Search className="h-5 w-5" />
             </Button>
           </Link>
-          <Button variant="ghost" size="icon" className="hover:bg-marble">
-            <User className="h-5 w-5" />
-          </Button>
+          <Link to="/profile">
+            <Button variant="ghost" size="icon" className="hover:bg-marble">
+              <User className="h-5 w-5" />
+            </Button>
+          </Link>
           <Link to="/cart">
             <Button variant="ghost" size="icon" className="hover:bg-marble relative">
               <ShoppingBag className="h-5 w-5" />
